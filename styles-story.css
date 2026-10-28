@@ -59,9 +59,9 @@
 /* ---- Coffee rig (right) ---- */
 .coffee-rig{
   position: absolute;
-  right: max(6vw, calc(50% - 480px));
-  top: 42%;
-  width: 220px; height: 260px;
+  right: max(4vw, calc(50% - 420px));
+  top: 34%;
+  width: 260px; height: 300px;
   transform: translate3d(40px, 20px, 0) scale(.85);
   transform-style: preserve-3d;
   opacity: 0;
@@ -69,23 +69,26 @@
   will-change: transform, opacity;
 }
 .tumbler{
-  position: absolute; left: 72px; top: 20px; width: 70px; height: 118px;
+  position: absolute; left: 85px; top: 18px; width: 82px; height: 138px;
   transform-style: preserve-3d;
   transform: rotateX(8deg) rotateY(-18deg);
-  filter: drop-shadow(0 18px 28px rgba(0,0,0,.45));
+  filter: drop-shadow(0 22px 34px rgba(0,0,0,.55));
 }
 .tumbler-rim{
-  position: absolute; inset: 0 auto auto 0; width: 70px; height: 14px;
+  position: absolute; inset: 0 auto auto 0; width: 82px; height: 16px;
   border-radius: 50%;
   background: linear-gradient(180deg, #eef2f5, #a7b1ba);
   box-shadow: inset 0 2px 4px rgba(255,255,255,.7);
   z-index: 3;
 }
 .tumbler-body{
-  position: absolute; left: 4px; top: 8px; width: 62px; height: 100px;
+  position: absolute; left: 5px; top: 9px; width: 72px; height: 118px;
   border-radius: 8px 8px 14px 14px;
-  background: linear-gradient(120deg, #f3f6f8 0%, #b7c1ca 38%, #7f8a94 72%, #c9d1d8 100%);
-  box-shadow: inset -10px 0 18px rgba(255,255,255,.35), inset 10px 0 16px rgba(0,0,0,.2);
+  background: linear-gradient(125deg, #ffffff 0%, #d7dee6 22%, #9aa6b0 48%, #6f7b86 78%, #c5ced6 100%);
+  box-shadow:
+    inset -12px 0 20px rgba(255,255,255,.45),
+    inset 12px 0 18px rgba(0,0,0,.28),
+    0 0 0 1px rgba(255,255,255,.25);
   overflow: hidden;
 }
 .tumbler-shine{
@@ -103,7 +106,7 @@
   border-radius: 50%; background: rgba(0,0,0,.28); filter: blur(4px);
 }
 .dabara{
-  position: absolute; left: 28px; bottom: 28px; width: 150px; height: 48px;
+  position: absolute; left: 30px; bottom: 22px; width: 180px; height: 56px;
   transform: rotateX(55deg) rotateZ(-6deg);
   transform-style: preserve-3d;
   filter: drop-shadow(0 14px 20px rgba(0,0,0,.4));
@@ -123,7 +126,7 @@
   opacity: 0; transform: scale(.6);
 }
 .pour-stream{
-  position: absolute; left: 104px; top: 28px; width: 5px; height: 0;
+  position: absolute; left: 122px; top: 24px; width: 6px; height: 0;
   border-radius: 3px;
   background: linear-gradient(180deg, rgba(107,66,44,.15), #5a3422 30%, #3a2218);
   transform-origin: top center;
@@ -131,7 +134,7 @@
   box-shadow: 0 0 10px rgba(90,52,34,.35);
 }
 .steam-layer{
-  position: absolute; left: 78px; top: -10px; width: 70px; height: 80px; pointer-events: none;
+  position: absolute; left: 90px; top: -16px; width: 80px; height: 90px; pointer-events: none;
   opacity: 0;
 }
 .steam-layer i{
@@ -153,16 +156,16 @@
 /* ---- Dosa rig (left / center) ---- */
 .dosa-rig{
   position: absolute;
-  left: max(4vw, calc(50% - 520px));
-  top: 38%;
-  width: 280px; height: 240px;
+  left: max(3vw, calc(50% - 540px));
+  top: 30%;
+  width: 340px; height: 280px;
   transform: translate3d(-30px, 10px, 0) scale(.9);
   transform-style: preserve-3d;
   opacity: 0;
   will-change: transform, opacity;
 }
 .plate{
-  position: absolute; left: 10px; top: 70px; width: 260px; height: 150px;
+  position: absolute; left: 20px; top: 80px; width: 300px; height: 170px;
   border-radius: 50%;
   background: radial-gradient(ellipse at 45% 35%, #f7f3ec, #d9d0c3 55%, #b7ada0 100%);
   box-shadow: 0 22px 40px rgba(0,0,0,.35), inset 0 2px 0 rgba(255,255,255,.65);
@@ -173,7 +176,7 @@
   border-radius: 50%; background: rgba(255,255,255,.35); filter: blur(6px);
 }
 .dosa{
-  position: absolute; left: 48px; top: 48px; width: 180px; height: 180px;
+  position: absolute; left: 60px; top: 42px; width: 210px; height: 210px;
   transform-style: preserve-3d;
   transform: rotateX(58deg) rotateZ(-8deg) scale(.35);
   transform-origin: 50% 55%;
@@ -216,9 +219,9 @@
   opacity: 0;
   box-shadow: inset 0 2px 4px rgba(255,255,255,.2), 0 4px 8px rgba(0,0,0,.2);
 }
-.chutney-g{ left: 36px; top: 150px; width: 36px; height: 28px; background: radial-gradient(circle at 40% 35%, #7bc46a, #2f6b32) }
-.chutney-c{ left: 78px; top: 158px; width: 34px; height: 26px; background: radial-gradient(circle at 40% 35%, #f2d2a0, #c48a3a) }
-.sambar{ left: 200px; top: 145px; width: 42px; height: 32px; background: radial-gradient(circle at 40% 35%, #d9783a, #8a3a16) }
+.chutney-g{ left: 44px; top: 175px; width: 42px; height: 32px; background: radial-gradient(circle at 40% 35%, #7bc46a, #2f6b32) }
+.chutney-c{ left: 92px; top: 185px; width: 40px; height: 30px; background: radial-gradient(circle at 40% 35%, #f2d2a0, #c48a3a) }
+.sambar{ left: 240px; top: 170px; width: 48px; height: 36px; background: radial-gradient(circle at 40% 35%, #d9783a, #8a3a16) }
 
 /* Progress-driven states via CSS vars set in JS */
 .story-stage{
@@ -249,7 +252,7 @@
   transform:
     rotateX(58deg)
     rotateZ(calc(-18deg + var(--p) * 14deg))
-    rotateY(calc(var(--fold, 0) * -155deg))
+    rotateY(calc(var(--fold, 0) * -105deg))
     scale(calc(.28 + var(--spread, 0) * .72));
 }
 .coffee-fill{ height: calc(var(--fill, 0) * 78%) }
@@ -265,16 +268,18 @@
 .chutney, .sambar{ opacity: calc(var(--sides, 0) * .95) }
 
 @media (max-width: 820px){
-  .story{ --story-h: 380vh }
+  .story{ --story-h: 400vh }
   .dosa-rig{
-    left: 50%; top: 28%;
-    margin-left: -140px;
+    left: 50%; top: 18%;
+    margin-left: -170px;
+    width: 340px; height: 280px;
   }
   .coffee-rig{
-    right: auto; left: 50%; top: 52%;
-    margin-left: -40px;
+    right: auto; left: 50%; top: 48%;
+    margin-left: -110px;
+    width: 240px; height: 280px;
   }
-  .story-copy{ bottom: 5vh }
+  .story-copy{ bottom: 4vh }
   .story-line{ font-size: clamp(1.35rem, 6vw, 2rem); max-width: 14ch }
 }
 @media (prefers-reduced-motion: reduce){

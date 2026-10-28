@@ -66,7 +66,7 @@
     // 0–0.28 batter spreads into dosa
     const spread = smoothstep(0.02, 0.28, p);
     // 0.28–0.48 fold
-    const fold = smoothstep(0.28, 0.5, p);
+    const fold = smoothstep(0.28, 0.52, p);
     // 0.45–0.62 pour appears
     const pour = Math.sin(Math.PI * smoothstep(0.45, 0.68, p));
     // fill rises 0.5–0.78
