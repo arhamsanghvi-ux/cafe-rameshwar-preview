@@ -71,58 +71,119 @@
   </div>
 </section>
 
-<!-- SCROLL STORY: Dosa + Filter coffee -->
+<!-- SCROLL STORY: photoreal dosa → steam → filter → tumbler pour -->
 <section class="story" id="story" aria-labelledby="story-title">
   <div class="story-sticky">
-    <div class="story-stage" id="story-stage" data-progress="0">
-      <div class="story-bg" aria-hidden="true"></div>
-
-      <!-- Filter coffee set (steel tumbler + dabara) -->
-      <div class="coffee-rig" aria-hidden="true">
-        <div class="steam-layer">
-          <i></i><i></i><i></i><i></i><i></i>
+    <div class="story-stage" id="story-stage" data-step="0" style="--p:0">
+      <div class="story-media" aria-hidden="true">
+        <!-- 0 Dosa -->
+        <div class="story-layer is-active" data-layer="0">
+          <video class="story-vid" data-vid="0" muted playsinline loop preload="metadata" poster="assets/story/layer-dosa.jpg">
+            <source src="assets/story/clip-dosa.mp4" type="video/mp4">
+          </video>
+          <picture>
+            <source type="image/webp" srcset="assets/story/layer-dosa.webp">
+            <img class="story-still" src="assets/story/layer-dosa.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+          </picture>
         </div>
-        <div class="pour-stream"></div>
-        <div class="tumbler">
-          <div class="tumbler-rim"></div>
-          <div class="tumbler-body">
-            <div class="tumbler-shine"></div>
-            <div class="coffee-fill"></div>
-          </div>
-          <div class="tumbler-base"></div>
+        <!-- 1 Steam bridge -->
+        <div class="story-layer" data-layer="1">
+          <picture>
+            <source type="image/webp" srcset="assets/story/layer-steam.webp">
+            <img class="story-still" src="assets/story/layer-steam.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+          </picture>
+          <div class="steam-drift" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
         </div>
-        <div class="dabara">
-          <div class="dabara-rim"></div>
-          <div class="dabara-bowl">
-            <div class="dabara-fill"></div>
-          </div>
+        <!-- 2 Filter drop -->
+        <div class="story-layer" data-layer="2">
+          <video class="story-vid" data-vid="2" muted playsinline loop preload="none" poster="assets/story/layer-filter.jpg">
+            <source src="assets/story/clip-coffee.mp4" type="video/mp4">
+          </video>
+          <picture>
+            <source type="image/webp" srcset="assets/story/layer-filter.webp">
+            <img class="story-still" src="assets/story/layer-filter.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+          </picture>
         </div>
+        <!-- 3 Tumbler → dabara pour -->
+        <div class="story-layer" data-layer="3">
+          <video class="story-vid" data-vid="3" muted playsinline loop preload="none" poster="assets/story/layer-pour.jpg">
+            <source src="assets/story/clip-pour.mp4" type="video/mp4">
+          </video>
+          <picture>
+            <source type="image/webp" srcset="assets/story/layer-pour.webp">
+            <img class="story-still" src="assets/story/layer-pour.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="story-vignette"></div>
       </div>
 
-      <!-- Dosa plate -->
-      <div class="dosa-rig" aria-hidden="true">
-        <div class="plate">
-          <div class="plate-shine"></div>
-        </div>
-        <div class="dosa">
-          <div class="dosa-face dosa-outer"></div>
-          <div class="dosa-face dosa-inner">
-            <div class="potato"></div>
-          </div>
-          <div class="dosa-edge"></div>
-        </div>
-        <div class="chutney chutney-g"></div>
-        <div class="chutney chutney-c"></div>
-        <div class="sambar"></div>
-      </div>
-
-      <div class="story-copy wrap">
+      <div class="story-ui wrap">
         <p class="section-label" id="story-title">The ritual</p>
-        <h2 class="story-line" data-line="0">Batter hits the tawa.</h2>
-        <h2 class="story-line" data-line="1">It crisps. It folds.</h2>
-        <h2 class="story-line" data-line="2">Steel cup. Hot pour.</h2>
-        <h2 class="story-line" data-line="3">Steam. First sip. Sorted.</h2>
+        <div class="story-panels">
+          <article class="story-panel" data-panel="0">
+            <h2>Batter hits the tawa.</h2>
+            <p>Crisp, porous dosa — the South Indian staple Cafe Rameshwar is known for. Sada, Mysore, ghee podi, and more from the live menu.</p>
+            <ul class="story-facts">
+              <li>South Indian · dosa · idli</li>
+              <li>~₹300 for two</li>
+            </ul>
+          </article>
+          <article class="story-panel" data-panel="1">
+            <h2>Steam rises. Fresh every time.</h2>
+            <p>From the dosa plume into the next pour — always fresh, always hot. Pure vegetarian kitchen with Jain options.</p>
+            <ul class="story-facts">
+              <li>Vegetarian only</li>
+              <li>Serves Jain</li>
+            </ul>
+          </article>
+          <article class="story-panel" data-panel="2">
+            <h2>Filter coffee, dripping slow.</h2>
+            <p>Dark decoction through brass — the proper cafe finish. Open daily for breakfast through a late cup.</p>
+            <ul class="story-facts">
+              <li>Filter coffee &amp; chai</li>
+              <li>8:00 AM – 10:30 PM</li>
+            </ul>
+          </article>
+          <article class="story-panel" data-panel="3">
+            <h2>Tumbler to dabara. First sip.</h2>
+            <p>Walk in at Pant Nagar, Ghatkopar East — independent neighbourhood cafe (not The Rameshwaram Cafe chain).</p>
+            <ul class="story-facts">
+              <li>Shop 3 &amp; 4, Plot 296, Jai Kisan CHS</li>
+              <li>WhatsApp / call +91 95122 79897</li>
+            </ul>
+            <p class="story-cta-row">
+              <a class="btn btn-primary" href="https://wa.me/919512279897?text=Hi%20Cafe%20Rameshwar%2C%20I%27d%20like%20to%20order%20%2F%20ask%20about%20the%20menu." target="_blank" rel="noopener">WhatsApp us</a>
+              <a class="btn btn-ghost" href="tel:+919512279897">Call</a>
+            </p>
+          </article>
+        </div>
+        <div class="story-progress" aria-hidden="true">
+          <span data-dot="0"></span><span data-dot="1"></span><span data-dot="2"></span><span data-dot="3"></span>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Reduced-motion / SEO-readable fallback stack -->
+  <div class="story-static wrap">
+    <p class="section-label">The ritual</p>
+    <div class="story-static-grid">
+      <figure>
+        <img src="assets/story/layer-dosa.jpg" width="800" height="450" alt="Golden porous dosa with melting butter and steam on a cast-iron tawa" loading="lazy">
+        <figcaption><strong>Batter hits the tawa.</strong> South Indian dosa · ~₹300 for two</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/story/layer-steam.jpg" width="800" height="450" alt="Thick steam rising from a hot dosa" loading="lazy">
+        <figcaption><strong>Steam rises.</strong> Vegetarian only · Serves Jain</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/story/layer-filter.jpg" width="800" height="450" alt="Brass South Indian coffee filter dripping decoction into a dabara" loading="lazy">
+        <figcaption><strong>Filter coffee.</strong> Open 8:00 AM – 10:30 PM</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/story/layer-pour.jpg" width="800" height="450" alt="Hands pouring filter coffee from brass tumbler into dabara" loading="lazy">
+        <figcaption><strong>Tumbler to dabara.</strong> Pant Nagar · +91 95122 79897</figcaption>
+      </figure>
     </div>
   </div>
 </section>

@@ -32,29 +32,60 @@
     );
   }
 
-  /* Scroll story */
+  /* Photoreal scroll story */
   const story = document.getElementById("story");
   const stage = document.getElementById("story-stage");
   if (!story || !stage) return;
 
+  const layers = Array.from(stage.querySelectorAll(".story-layer"));
+  const videos = Array.from(stage.querySelectorAll(".story-vid"));
+
   function clamp(n, a, b) {
     return Math.max(a, Math.min(b, n));
   }
-  function smoothstep(edge0, edge1, x) {
-    const t = clamp((x - edge0) / (edge1 - edge0), 0, 1);
-    return t * t * (3 - 2 * t);
+
+  function setStep(step) {
+    if (stage.dataset.step === String(step)) return;
+    stage.dataset.step = String(step);
+    layers.forEach((layer) => {
+      const i = Number(layer.dataset.layer);
+      layer.classList.toggle("is-active", i === step);
+      layer.classList.toggle("is-prev", i === step - 1);
+    });
+    videos.forEach((vid) => {
+      const i = Number(vid.dataset.vid);
+      if (reduce) {
+        vid.pause();
+        return;
+      }
+      if (i === step) {
+        const play = () => {
+          const p = vid.play();
+          if (p && p.catch) p.catch(() => {});
+        };
+        if (vid.readyState >= 2) play();
+        else {
+          vid.preload = "auto";
+          vid.addEventListener("loadeddata", play, { once: true });
+          try { vid.load(); } catch (_) {}
+        }
+        vid.closest(".story-layer")?.classList.add("has-video");
+      } else {
+        vid.pause();
+      }
+    });
   }
+
+  /* Mark videos that can show */
+  videos.forEach((vid) => {
+    vid.addEventListener("loadeddata", () => {
+      vid.closest(".story-layer")?.classList.add("has-video");
+    });
+  });
 
   function updateStory() {
     if (reduce) {
-      stage.style.setProperty("--p", "1");
-      stage.style.setProperty("--spread", "1");
-      stage.style.setProperty("--fold", "0.55");
-      stage.style.setProperty("--fill", "0.85");
-      stage.style.setProperty("--pour", "0");
-      stage.style.setProperty("--steam", "1");
-      stage.style.setProperty("--sides", "1");
-      stage.dataset.step = "3";
+      setStep(0);
       return;
     }
     const rect = story.getBoundingClientRect();
@@ -63,29 +94,11 @@
     const p = total > 0 ? scrolled / total : 0;
     stage.style.setProperty("--p", p.toFixed(4));
 
-    // 0–0.28 batter spreads into dosa
-    const spread = smoothstep(0.02, 0.28, p);
-    // 0.28–0.48 fold
-    const fold = smoothstep(0.28, 0.52, p);
-    // 0.45–0.62 pour appears
-    const pour = Math.sin(Math.PI * smoothstep(0.45, 0.68, p));
-    // fill rises 0.5–0.78
-    const fill = smoothstep(0.5, 0.78, p);
-    const steam = smoothstep(0.62, 0.85, p);
-    const sides = smoothstep(0.2, 0.4, p);
-
-    stage.style.setProperty("--spread", spread.toFixed(4));
-    stage.style.setProperty("--fold", fold.toFixed(4));
-    stage.style.setProperty("--pour", pour.toFixed(4));
-    stage.style.setProperty("--fill", fill.toFixed(4));
-    stage.style.setProperty("--steam", steam.toFixed(4));
-    stage.style.setProperty("--sides", sides.toFixed(4));
-
     let step = 0;
-    if (p > 0.72) step = 3;
-    else if (p > 0.48) step = 2;
-    else if (p > 0.24) step = 1;
-    stage.dataset.step = String(step);
+    if (p >= 0.72) step = 3;
+    else if (p >= 0.48) step = 2;
+    else if (p >= 0.24) step = 1;
+    setStep(step);
   }
 
   let ticking = false;
@@ -97,7 +110,26 @@
       ticking = false;
     });
   }
+
+  /* Lazy-load first video when story nears viewport */
+  if ("IntersectionObserver" in window && videos[0]) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            videos[0].preload = "auto";
+            try { videos[0].load(); } catch (_) {}
+            io.disconnect();
+          }
+        });
+      },
+      { rootMargin: "200px" }
+    );
+    io.observe(story);
+  }
+
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
+  setStep(0);
   updateStory();
 })();
