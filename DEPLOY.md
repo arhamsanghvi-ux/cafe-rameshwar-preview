@@ -1,5 +1,3 @@
 # Deploy
-
-Cloudflare Pages project: `cafe-rameshwar-preview`
-Build: `bash build.sh` (decodes `.b64` assets)
-Production URL: https://cafe-rameshwar-preview.pages.dev
+Cloudflare Pages project `cafe-rameshwar-preview` builds with `bash build.sh` (decodes `assets/**/*.b64`).
+Production: https://cafe-rameshwar-preview.pages.dev
